@@ -4,7 +4,6 @@ class GameBoot extends Phaser.State {
 
     create() {
       this.game.add.plugin(PhaserSpine.SpinePlugin);
-
       this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
       this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
       this.game.scale.refresh();

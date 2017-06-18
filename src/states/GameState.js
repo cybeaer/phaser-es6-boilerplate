@@ -25,7 +25,7 @@ class GameState extends Phaser.State {
   preload(){
     this.game.load.spine(
       'buddy',                        //The key used for Phaser's cache
-      'animation/spineboy.json'       //The location of the spine's json file
+      'animations/spineboy.json'       //The location of the spine's json file
     );
   }
 }

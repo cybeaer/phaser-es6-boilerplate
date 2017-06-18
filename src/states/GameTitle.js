@@ -9,7 +9,7 @@ class GameTitle extends Phaser.State {
   }
 
   preload() {
-    this.game.load.image('testImage', 'img/test.png');
+    this.game.load.image('testImage', 'images/test.png');
   }
 
   update(){
