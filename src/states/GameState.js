@@ -8,14 +8,14 @@ class GameState extends Phaser.State {
 		text.anchor.set(0.5);
 
     let buddy = this.game.add.spine(
-      150,        //X positon
-      500,        //Y position
+      130,        //X positon
+      420,        //Y position
       'buddy'     //the key of the object in cache
     );
 
     buddy.setAnimationByName(
       0,          //Track index
-      "idle",     //Animation's name
+      "walk",     //Animation's name
       true        //If the animation should loop or not
     );
 	}

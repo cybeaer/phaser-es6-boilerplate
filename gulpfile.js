@@ -16,7 +16,7 @@ var browserSync = require('browser-sync');
  * Using different folders/file names? Change these constants:
  */
 var PHASER_PATH = './node_modules/phaser/build/';
-var SPINE_PATH = './@orange-games/phaser-spine/build/';
+var SPINE_PATH = './node_modules/@orange-games/phaser-spine/build/';
 var BUILD_PATH = './build';
 var SCRIPTS_PATH = BUILD_PATH + '/scripts';
 var SOURCE_PATH = './src';
@@ -70,8 +70,8 @@ function copyStatic() {
 }
 
 /**
- * Copies required Phaser files from the './node_modules/Phaser' folder into the './build/scripts' folder.
- * This way you can call 'npm update', get the lastest Phaser version and use it on your project with ease.
+ * Copies required Spine files from the './node_modules/@orange-games' folder into the './build/scripts' folder.
+ * This way you can call 'npm update', get the lastest Spine Library version and use it on your project with ease.
  */
 function copySpine() {
 
@@ -96,10 +96,10 @@ function copySpine() {
  */
 function copyPhaser() {
 
-    var srcList = ['phaser.min.js','phaser-spine.min.js'];
+    var srcList = ['phaser.min.js'];
 
     if (!isProduction()) {
-        srcList.push('phaser.map', 'phaser.js','phaser-spine.js','phaser-spine.js.map');
+        srcList.push('phaser.map', 'phaser.js');
     }
 
     srcList = srcList.map(function(file) {
@@ -188,7 +188,7 @@ gulp.task('watch-static', ['copySpine'], browserSync.reload);
 
 /**
  * The tasks are executed in the following order:
- * 'cleanBuild' -> 'copyStatic' -> 'copyPhaser' -> 'build' -> 'serve'
+ * 'cleanBuild' -> 'copyStatic' -> 'copyPhaser' -> 'copySpine' -> 'build' -> 'serve'
  *
  * Read more about task dependencies in Gulp:
  * https://medium.com/@dave_lunny/task-dependencies-in-gulp-b885c1ab48f0
