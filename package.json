@@ -29,6 +29,7 @@
     "yargs": "^4.6.0"
   },
   "dependencies": {
+    "@orange-games/phaser-spine": "^3.0.7",
     "phaser": "^2.4.7"
   }
 }
