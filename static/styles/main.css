@@ -5,11 +5,13 @@ html {
   padding: 0px;
 }
 
+
 body {
   height: inherit;
   width: inherit;
   margin: 0px;
-  display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #ececc4;
+  overflow:hidden;
 }
