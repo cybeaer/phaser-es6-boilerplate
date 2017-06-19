@@ -17,6 +17,7 @@ var browserSync = require('browser-sync');
  */
 var PHASER_PATH = './node_modules/phaser/build/';
 var SPINE_PATH = './node_modules/@orange-games/phaser-spine/build/';
+var QWEST_PATH = './node_modules/qwest/';
 var BUILD_PATH = './build';
 var SCRIPTS_PATH = BUILD_PATH + '/scripts';
 var SOURCE_PATH = './src';
@@ -67,6 +68,27 @@ function cleanBuild() {
 function copyStatic() {
     return gulp.src(STATIC_PATH + '/**/*')
         .pipe(gulp.dest(BUILD_PATH));
+}
+
+/**
+ * Copies required qwest files from the './node_modules/qwest' folder into the './build/scripts' folder.
+ * This way you can call 'npm update', get the lastest qwest Library version and use it on your project with ease.
+ */
+function copyQwest() {
+
+    var srcList = ['qwest.min.js'];
+
+    if (!isProduction()) {
+        srcList.push('src/qwest.js');
+    }
+
+    srcList = srcList.map(function(file) {
+        return QWEST_PATH + file;
+    });
+
+    return gulp.src(srcList)
+        .pipe(gulp.dest(SCRIPTS_PATH));
+
 }
 
 /**
@@ -180,7 +202,8 @@ gulp.task('cleanBuild', cleanBuild);
 gulp.task('copyStatic', ['cleanBuild'], copyStatic);
 gulp.task('copyPhaser', ['copyStatic'], copyPhaser);
 gulp.task('copySpine', ['copyPhaser'], copySpine);
-gulp.task('build', ['copySpine'], build);
+gulp.task('copyQwest', ['copySpine'], copyQwest);
+gulp.task('build', ['copyQwest'], build);
 gulp.task('fastBuild', build);
 gulp.task('serve', ['build'], serve);
 gulp.task('watch-js', ['fastBuild'], browserSync.reload); // Rebuilds and reloads the project when executed.

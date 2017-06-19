@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@orange-games/phaser-spine": "^3.0.7",
-    "phaser": "^2.4.7"
+    "phaser": "^2.4.7",
+    "qwest": "^4.4.6"
   }
 }
